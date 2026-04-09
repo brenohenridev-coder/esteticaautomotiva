@@ -1,0 +1,827 @@
+/* ================================================
+   OPUS DETAIL
+   style.css
+   ================================================ */
+
+/* ---- NAVBAR ---- */
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 6vw;
+  box-sizing: border-box;
+  transition: background 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+#navbar.solid {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+.nav-logo {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 36px;
+}
+
+.nav-links a {
+  font-family: 'Ronzino', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.nav-links a:hover {
+  opacity: 1;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ---- RONZINO FONT ---- */
+@font-face {
+  font-family: 'Ronzino';
+  src: url('../fonts/Ronzino-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Ronzino';
+  src: url('../fonts/Ronzino-Oblique.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Ronzino';
+  src: url('../fonts/Ronzino-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Ronzino';
+  src: url('../fonts/Ronzino-MediumOblique.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Ronzino';
+  src: url('../fonts/Ronzino-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Ronzino';
+  src: url('../fonts/Ronzino-BoldOblique.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ---- RESET & BASE ---- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Ronzino', sans-serif;
+  background: #000;
+}
+
+/* ---- SEÇÕES ---- */
+section {
+  width: 100%;
+  height: 100vh;
+  background: #000000;
+}
+
+/* ---- SEÇÃO 2 — TEXTO + CARROSSEL ---- */
+#s2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8vw;
+  gap: 8vw;
+  overflow: hidden;
+}
+
+.s2-content {
+  width: 48%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  z-index: 2;
+}
+
+/* ---- CARROSSEL HORIZONTAL INFINITO ---- */
+.s2-carousel {
+  flex: 1;
+  height: 60vh;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(to right,
+    transparent 0%,
+    #000 10%,
+    #000 90%,
+    transparent 100%);
+  -webkit-mask-image: linear-gradient(to right,
+    transparent 0%,
+    #000 10%,
+    #000 90%,
+    transparent 100%);
+}
+
+.s2-track {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  height: 100%;
+  width: max-content;
+  animation: s2-scroll 40s linear infinite;
+  will-change: transform;
+}
+
+.s2-slide {
+  flex-shrink: 0;
+  height: 100%;
+  width: auto;
+  padding: 0 30px;
+  box-sizing: content-box;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.s2-slide img {
+  width: auto;
+  height: 100%;
+  max-width: none;
+  object-fit: contain;
+  display: block;
+}
+
+.s2-slide span {
+  font-family: 'Ronzino', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #2a2a2a;
+}
+
+@keyframes s2-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-50% - 11px)); }
+}
+
+@media (max-width: 900px) {
+  #s2 {
+    flex-direction: column;
+    justify-content: center;
+    gap: 60px;
+    padding: 100px 6vw;
+    height: auto;
+    min-height: 100vh;
+  }
+  .s2-content { width: 100%; }
+  .s2-carousel { height: 45vh; width: 100%; }
+}
+
+.s2-label {
+  font-family: 'Ronzino', sans-serif;
+  font-weight: 400;
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #888;
+}
+
+.s2-title {
+  font-family: 'Ronzino', sans-serif;
+  font-weight: 400;
+  font-size: clamp(3rem, 5.5vw, 5.5rem);
+  line-height: 1.05;
+  color: #F5F5F0;
+  letter-spacing: -0.02em;
+}
+
+.s2-text {
+  font-family: 'Ronzino', sans-serif;
+  font-weight: 400;
+  font-size: 0.92rem;
+  line-height: 1.9;
+  color: #888;
+  max-width: 460px;
+}
+
+.s2-line {
+  width: 40px;
+  height: 1px;
+  background: #C9A84C;
+}
+
+.s2-sub {
+  font-family: 'Ronzino', sans-serif;
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #C9A84C;
+}
+
+/* ---- SEÇÃO 3 — VIDEO ---- */
+#s3 {
+  position: relative;
+  overflow: hidden;
+}
+
+.s3-front {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.s3-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, transparent 20%, rgba(0,0,0,0.45) 50%, transparent 80%);
+  pointer-events: none;
+  text-align: center;
+}
+
+.s3-tag {
+  font-family: 'Ronzino', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: #C9A84C;
+  margin-bottom: 28px;
+}
+
+.s3-headline {
+  font-family: 'Ronzino', sans-serif;
+  font-weight: 400;
+  font-size: clamp(2.4rem, 5.5vw, 5rem);
+  line-height: 1.15;
+  color: #fff;
+  letter-spacing: 0.01em;
+  margin: 0 0 28px;
+  text-shadow: 0 2px 40px rgba(0,0,0,0.5);
+}
+
+.s3-headline em {
+  font-style: italic;
+  color: #C9A84C;
+  font-weight: 400;
+}
+
+.s3-rule {
+  width: 48px;
+  height: 1px;
+  background: rgba(201, 168, 76, 0.6);
+  margin-bottom: 24px;
+}
+
+.s3-sub {
+  font-family: 'Ronzino', sans-serif;
+  font-weight: 400;
+  font-size: 0.78rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin: 0;
+}
+
+#s3-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ---- SEÇÃO 4 — PORTFÓLIO ---- */
+#s4 {
+  height: auto;
+  min-height: 100vh;
+  padding: 120px 8vw;
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+}
+
+.s4-header {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.s4-label {
+  font-family: 'Ronzino', sans-serif;
+  font-weight: 400;
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #888;
+}
+
+.s4-title {
+  font-family: 'Ronzino', sans-serif;
+  font-weight: 400;
+  font-size: clamp(2.6rem, 5vw, 4.5rem);
+  line-height: 1.05;
+  color: #F5F5F0;
+  letter-spacing: -0.02em;
+}
+
+.s4-title em {
+  font-style: italic;
+  color: #C9A84C;
+}
+
+.s4-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.s4-item {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #0a0a0a;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              border-color 0.5s ease;
+}
+
+.s4-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201, 168, 76, 0.3);
+}
+
+.s4-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.s4-ph {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Ronzino', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #2a2a2a;
+}
+
+@media (max-width: 900px) {
+  .s4-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .s4-grid { grid-template-columns: 1fr; }
+  #s4 { padding: 80px 6vw; }
+}
+
+/* ---- SEÇÃO 6 — QUEM SOMOS ---- */
+#s6 {
+  min-height: 100vh;
+  padding: 120px 8vw;
+  display: flex;
+  align-items: center;
+  background: #050505;
+}
+
+.s6-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 80px;
+  width: 100%;
+  align-items: start;
+}
+
+.s6-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.s6-label {
+  font-family: 'Ronzino', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #C9A84C;
+  margin-bottom: 28px;
+}
+
+.s6-title {
+  font-family: 'Ronzino', sans-serif;
+  font-weight: 400;
+  font-size: clamp(2.4rem, 4.5vw, 4rem);
+  line-height: 1.2;
+  color: #fff;
+  margin: 0 0 36px;
+}
+
+.s6-title em {
+  font-style: italic;
+  color: #C9A84C;
+}
+
+.s6-rule {
+  width: 40px;
+  height: 1px;
+  background: rgba(201, 168, 76, 0.5);
+  margin-bottom: 28px;
+}
+
+.s6-text {
+  font-family: 'Ronzino', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 2;
+  color: rgba(255,255,255,0.5);
+  margin: 0 0 18px;
+}
+
+.s6-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+.s6-pillar {
+  padding: 44px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 20px;
+}
+
+.s6-pillar-num {
+  font-family: 'Ronzino', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: #C9A84C;
+  padding-top: 4px;
+  grid-row: 1;
+}
+
+.s6-pillar-title {
+  font-family: 'Ronzino', sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #fff;
+  grid-column: 2;
+  grid-row: 1;
+  margin-bottom: 8px;
+}
+
+.s6-pillar-text {
+  font-family: 'Ronzino', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.45);
+  margin: 0;
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/* ---- SEÇÃO 5 — CONTATO ---- */
+#s5 {
+  height: auto;
+  min-height: 100vh;
+  padding: 120px 8vw 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+.s5-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  flex: 1;
+}
+
+.s5-left {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.s5-label {
+  font-family: 'Ronzino', sans-serif;
+  font-weight: 400;
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #888;
+}
+
+.s5-title {
+  font-family: 'Ronzino', sans-serif;
+  font-weight: 400;
+  font-size: clamp(2.6rem, 5vw, 4.5rem);
+  line-height: 1.05;
+  color: #F5F5F0;
+  letter-spacing: -0.02em;
+}
+
+.s5-title em {
+  font-style: italic;
+  color: #C9A84C;
+}
+
+.s5-text {
+  font-family: 'Ronzino', sans-serif;
+  font-weight: 400;
+  font-size: 0.92rem;
+  line-height: 1.9;
+  color: #888;
+  max-width: 480px;
+}
+
+.s5-wpp {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 32px;
+  background: #25D366;
+  color: #000;
+  font-family: 'Ronzino', sans-serif;
+  font-weight: 500;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  width: fit-content;
+  transition: transform 0.35s ease, background 0.35s ease;
+}
+
+.s5-wpp:hover {
+  transform: translateY(-3px);
+  background: #1ebe57;
+}
+
+.s5-info {
+  margin-top: 18px;
+  padding-top: 26px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.s5-info-lbl {
+  font-family: 'Ronzino', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #C9A84C;
+  margin-bottom: 10px;
+}
+
+.s5-info-val {
+  font-family: 'Ronzino', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: #aaa;
+}
+
+/* ---- MAPA ---- */
+.s5-map {
+  width: 100%;
+  max-width: 520px;
+  height: 360px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.s5-map iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.s5-map:hover {
+  border-color: rgba(201, 168, 76, 0.4);
+  background: #0f0f0f;
+  transform: translateY(-4px);
+}
+
+.s5-map-icon {
+  width: 88px;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  color: #C9A84C;
+  transition: transform 0.4s ease;
+}
+
+.s5-map:hover .s5-map-icon {
+  transform: scale(1.08);
+}
+
+.s5-map-icon svg {
+  width: 38px;
+  height: 38px;
+}
+
+.s5-map-txt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.s5-map-lbl {
+  font-family: 'Ronzino', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #888;
+}
+
+.s5-map-act {
+  font-family: 'Ronzino', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #F5F5F0;
+}
+
+.s5-foot {
+  text-align: center;
+  font-family: 'Ronzino', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #444;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 900px) {
+  .s5-inner {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  #s5 { padding: 80px 6vw 30px; }
+}
+
+/* ---- BOTÃO FLUTUANTE WHATSAPP (só desktop) ---- */
+.wpp-float {
+  display: none;
+}
+
+@media (min-width: 901px) {
+  .wpp-float {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #25D366;
+    color: #fff;
+    text-decoration: none;
+    z-index: 200;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .wpp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 28px rgba(37, 211, 102, 0.5);
+  }
+}
+
+/* ---- HERO VIDEO ---- */
+#s1 {
+  position: relative;
+  overflow: hidden;
+}
+
+.s1-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 0 8vw 9vh;
+  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.s1-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.s1-tag {
+  font-family: 'Ronzino', sans-serif;
+  font-weight: 400;
+  font-size: 0.62rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 14px;
+}
+
+.s1-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  line-height: 1.1;
+  color: #fff;
+  letter-spacing: 0.01em;
+  margin: 0 0 16px;
+}
+
+.s1-rule {
+  width: 48px;
+  height: 1px;
+  background: rgba(201, 168, 76, 0.7);
+  margin-bottom: 16px;
+}
+
+.s1-sub {
+  font-family: 'Ronzino', sans-serif;
+  font-weight: 400;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin: 0;
+}
+
+#hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
